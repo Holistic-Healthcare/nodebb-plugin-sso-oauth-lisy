@@ -171,7 +171,11 @@
 
 		var profile = {};
 		profile.id = data.id;
-		profile.displayName = `${data.firstname} ${data.lastname}`;
+		if(data.firstname && data.lastname){
+			profile.displayName = `${data.firstname} ${data.lastname}`;
+		}else{
+			profile.displayName = data.email;
+		}
 		profile.emails = [{ value: data.email }];
 		profile.isAdmin = data.role == "Super-Administrator";
 
