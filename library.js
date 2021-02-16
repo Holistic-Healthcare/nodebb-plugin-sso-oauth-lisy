@@ -174,7 +174,7 @@
 		if(data.firstname && data.lastname){
 			profile.displayName = `${data.firstname} ${data.lastname}`;
 		}else{
-			profile.displayName = data.email;
+			profile.displayName = data.username;
 		}
 		profile.emails = [{ value: data.email }];
 		profile.isAdmin = data.role == "Super-Administrator";
