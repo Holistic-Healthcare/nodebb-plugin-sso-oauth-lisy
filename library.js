@@ -60,6 +60,7 @@
 			tokenURL: nconf.get('oauth:tokenURL'),
 			clientID: nconf.get('oauth:clientID'),	// don't change this line
 			clientSecret: nconf.get('oauth:clientSecret'),	// don't change this line
+			scope: "user"
 		},
 		userRoute: nconf.get('userRoute'),	// This is the address to your app's "user profile" API endpoint (expects JSON)
 	});
@@ -177,7 +178,7 @@
 			profile.displayName = data.username;
 		}
 		profile.emails = [{ value: data.email }];
-		profile.isAdmin = data.role == "Super-Administrator";
+		profile.isAdmin = data.role.title == "Administrator";
 
 		// Do you want to automatically make somebody an admin? This line might help you do that...
 		// profile.isAdmin = data.isAdmin ? true : false;
