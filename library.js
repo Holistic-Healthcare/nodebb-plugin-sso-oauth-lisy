@@ -60,8 +60,8 @@
 			tokenURL: nconf.get('oauth:tokenURL'),
 			clientID: nconf.get('oauth:clientID'),	// don't change this line
 			clientSecret: nconf.get('oauth:clientSecret'),	// don't change this line
-			scope: "user"
 		},
+		scope: "user",
 		userRoute: nconf.get('userRoute'),	// This is the address to your app's "user profile" API endpoint (expects JSON)
 	});
 
