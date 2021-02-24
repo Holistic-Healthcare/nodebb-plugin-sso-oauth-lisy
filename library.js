@@ -112,7 +112,7 @@
 				// OAuth 2 options
 				opts = constants.oauth2;
 				opts.callbackURL = nconf.get('url') + '/auth/' + constants.name + '/callback';
-
+		
 				passportOAuth.Strategy.prototype.userProfile = function (accessToken, done) {
 					this._oauth2.get(constants.userRoute, accessToken, function (err, body/* , res */) {
 						if (err) {
@@ -132,6 +132,12 @@
 						}
 					});
 				};
+
+				passportOAuth.Strategy.prototype.tokenParams = function (options){
+					return {
+						scope: constants.scope
+					}
+				}
 			}
 
 			opts.passReqToCallback = true;
